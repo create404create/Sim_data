@@ -1,43 +1,39 @@
-// Matrix Effect
-const canvas = document.createElement('canvas');
-const ctx = canvas.getContext('2d');
-document.querySelector('.matrix-bg').appendChild(canvas);
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
+async function searchNumber() {
+  let number = document.getElementById("numberInput").value.trim();
+  if (!number) {
+    alert("Please enter a number");
+    return;
+  }
 
-const letters = Array(256).join("1").split("");
-function drawMatrix() {
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#0F0";
-    letters.map((y, index) => {
-        const text = String.fromCharCode(3e4 + Math.random() * 33);
-        const x = index * 10;
-        ctx.fillText(text, x, y);
-        letters[index] = (y > 758 + Math.random() * 1e4) ? 0 : y + 10;
-    });
-}
-setInterval(drawMatrix, 33);
+  let resultsDiv = document.getElementById("results");
+  resultsDiv.classList.remove("hidden");
+  resultsDiv.innerHTML = "<p>Loading...</p>";
 
-// API Lookup
-function lookupNumber() {
-    const num = document.getElementById("number").value.trim();
-    const output = document.getElementById("output");
+  try {
+    // Replace with your API URL
+    let response = await fetch(`https://your-api-url.com/search?number=${number}`);
+    let data = await response.json();
 
-    if (!num) {
-        output.textContent = "[ERROR] Please enter a number.";
-        return;
+    // Hide "Meher" name if it comes
+    if (data.owner && data.owner.toLowerCase() === "meher") {
+      delete data.owner;
     }
 
-    output.textContent = "[INFO] Connecting to database...\n";
+    let html = "<table>";
+    for (let key in data) {
+      if (data[key] && data[key] !== "") {
+        html += `<tr><td><strong>${capitalize(key)}</strong></td><td>${data[key]}</td></tr>`;
+      }
+    }
+    html += "</table>";
 
-    fetch(`https://api.nexoracle.com/details/pak-sim-database-free?apikey=free_key@maher_apis&q=${num}`)
-        .then(res => res.json())
-        .then(data => {
-            output.textContent += "[SUCCESS] Data Retrieved:\n\n";
-            output.textContent += JSON.stringify(data, null, 2);
-        })
-        .catch(err => {
-            output.textContent += `[ERROR] ${err.message}`;
-        });
+    resultsDiv.innerHTML = html;
+
+  } catch (error) {
+    resultsDiv.innerHTML = "<p style='color:red;'>Error fetching data</p>";
+  }
+}
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
