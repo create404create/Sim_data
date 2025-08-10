@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pak Sim Data Lookup</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Lookup Tool</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="matrix-bg"></div>
 
-<div class="container">
-    <h1 class="title">📡 Pak Sim Data Lookup</h1>
-    <p class="credit">CREATED BY <span>AYAN AHMAD</span></p>
-
+  <div class="container">
+    <h1>Number Lookup Tool</h1>
+    <p class="subtitle">Check SIM Owner Details Instantly</p>
+    
     <div class="search-box">
-        <input type="text" id="number" placeholder="Enter Mobile Number..." value="3285809899">
-        <button onclick="lookupNumber()">🔍 Search</button>
+      <input type="text" id="numberInput" placeholder="e.g. 3285809899">
+      <button onclick="searchNumber()">Search</button>
     </div>
 
-    <pre id="output" class="terminal">[ Waiting for query... ]</pre>
+    <div id="results" class="results hidden"></div>
 
-    <div class="buttons">
-        <a href="https://wa.me/923285809899" target="_blank" class="btn">📱 Contact Me</a>
-        <a href="https://chat.whatsapp.com/IkM1xV2Otd805TG7yhoCQi?mode=ems_copy_t" target="_blank" class="btn">💬 Join WhatsApp Group</a>
+    <div class="footer">
+      <p>Developed by <strong>Ehtisham Abid</strong></p>
+      <a href="https://wa.me/923001234567" target="_blank" class="btn">📱 Contact on WhatsApp</a>
+      <a href="https://chat.whatsapp.com/yourgroupinvite" target="_blank" class="btn">💬 Join Our Group</a>
     </div>
-</div>
+  </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
