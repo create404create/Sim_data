@@ -1,93 +1,94 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: monospace;
-    color: #00ff00;
-    background: black;
-    overflow: hidden;
-}
-
-.matrix-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    z-index: -1;
-    pointer-events: none;
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-    text-align: center;
-    padding: 20px;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
 }
 
-.title {
-    font-size: 28px;
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
+h1 {
+  color: #2c3e50;
 }
 
-.credit {
-    margin-bottom: 20px;
-    font-size: 16px;
-}
-
-.credit span {
-    color: red;
+.subtitle {
+  color: #7f8c8d;
+  margin-bottom: 20px;
 }
 
 .search-box {
-    margin: 20px 0;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .search-box input {
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #00ff00;
-    background: black;
-    color: #00ff00;
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-box input::placeholder {
+  color: #aaa;
 }
 
 .search-box button {
-    padding: 10px;
-    font-size: 16px;
-    background: #00ff00;
-    color: black;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
+  padding: 10px 15px;
+  font-size: 16px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.terminal {
-    background: rgba(0, 0, 0, 0.8);
-    border: 1px solid #00ff00;
-    padding: 15px;
-    text-align: left;
-    width: 90%;
-    margin: auto;
-    height: 200px;
-    overflow-y: auto;
-    font-size: 14px;
+.search-box button:hover {
+  background: #2980b9;
 }
 
-.buttons {
-    margin-top: 20px;
+.results {
+  background: white;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.results table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.results table td {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.hidden {
+  display: none;
+}
+
+.footer {
+  margin-top: 30px;
 }
 
 .btn {
-    display: inline-block;
-    padding: 10px 15px;
-    background: #00ff00;
-    color: black;
-    text-decoration: none;
-    margin: 5px;
-    font-weight: bold;
-    border-radius: 5px;
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  background: #27ae60;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
 .btn:hover {
-    background: red;
-    color: white;
+  background: #1e8449;
 }
